@@ -2,6 +2,8 @@
 var data = {
   view: 'search-page',
   cities: [],
+  cityInfo: null,
+  cityForecast: [],
   editing: null,
   nextEntryId: 1
 };
