@@ -81,3 +81,11 @@ function viewSwap(viewtype) {
     $cityPage.className = 'hidden';
   }
 }
+
+var $newSearchButtonCity = document.querySelector('#new-search-city');
+$newSearchButtonCity.addEventListener('click', togglePage);
+function togglePage(event) {
+  if (event.target.matches('#new-search-city')) {
+    viewSwap('search-page');
+  }
+}
