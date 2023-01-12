@@ -88,4 +88,23 @@ function togglePage(event) {
   if (event.target.matches('#new-search-city')) {
     viewSwap('search-page');
   }
+
+}
+
+var $cityHamburger = document.querySelector('#city-hamburger');
+$cityHamburger.addEventListener('click', cityHamburgerModal);
+var $overlay = document.querySelector('.overlay');
+function cityHamburgerModal(event) {
+  if (event.target.matches('#city-hamburger')) {
+    $overlay.className = 'overlay';
+  }
+}
+
+var $newSearchHamburgerButton = document.querySelector('#new-search-hamburger');
+$newSearchHamburgerButton.addEventListener('click', newSearchPageHamburger);
+function newSearchPageHamburger(event) {
+  if (event.target.matches('#new-search-hamburger')) {
+    viewSwap('search-page');
+    $overlay.className = 'overlay hidden';
+  }
 }

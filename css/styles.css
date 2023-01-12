@@ -119,6 +119,31 @@ li {
   font-size: 3.5rem;
 }
 
+.overlay {
+  background-color: rgba(0, 0, 0, 0.759);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#new-search-hamburger {
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#favorites-hamburger {
+  color: white;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.mt-5rem {
+  margin-top: 5rem;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1500px;
