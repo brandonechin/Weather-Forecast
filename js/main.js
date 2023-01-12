@@ -30,7 +30,7 @@ function getCityInfo(event) {
 }
 
 var $cityName = document.querySelector('.city-name');
-var $icon = document.querySelector('.icon');
+var $icon = document.querySelector('.open-weather-icon');
 var $temperature = document.querySelector('.temperature');
 var $highTemp = document.querySelector('.high-temp');
 var $lowTemp = document.querySelector('.low-temp');
@@ -54,12 +54,11 @@ function getForecastInfo(event) {
     $condition.textContent = this.response.weather[0].description;
     $feelsLike.textContent = this.response.main.feels_like + '°';
     $humidity.textContent = this.response.main.humidity + '%';
-    $windSpeed.textContent = this.respsonse.wind.speed + 'mph';
-    $visibility.textContent = this.response.visibility + 'mi';
+    $windSpeed.textContent = this.response.wind.speed + 'mph';
+    $visibility.textContent = this.response.visibility + 'km';
   });
   xhrForecast.send();
 }
-
 var $searchPage = document.querySelector('#search-page');
 var $cityPage = document.querySelector('#city-page');
 var $favoritePage = document.querySelector('#favorite-page');
@@ -83,8 +82,8 @@ function viewSwap(viewtype) {
 }
 
 var $newSearchButtonCity = document.querySelector('#new-search-city');
-$newSearchButtonCity.addEventListener('click', togglePage);
-function togglePage(event) {
+$newSearchButtonCity.addEventListener('click', NewSearchButtonCity);
+function NewSearchButtonCity(event) {
   if (event.target.matches('#new-search-city')) {
     viewSwap('search-page');
   }
