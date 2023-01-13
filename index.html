@@ -31,7 +31,7 @@
     </div>
   </div>
   <main class="container">
-    <div id="search-page" class="">
+    <div id="search-page" class="hidden">
       <header class="container">
         <div class="row">
           <div class="column-full text-align-right">
@@ -59,7 +59,7 @@
         </div>
       </form>
     </div>
-    <div id="city-page" class="hidden">
+    <div id="city-page" class="">
       <div class="container">
         <div class="row">
           <div class="column-two-third flex weather-forecast-nav-text">
@@ -118,7 +118,7 @@
           </div>
           <div class="row">
             <div class="column-full text-align-right padding-right-more">
-              <a><img class="like-icon" src="images/icons8-blue-heart-48.png"></a>
+              <i class="fa-solid fa-heart like-icon"></i>
             </div>
           </div>
         </li>
@@ -138,8 +138,56 @@
           </div>
         </div>
       </div>
-      <ul>
-
+      <ul class="favorite-list">
+        <li class="text-align-center white-text">
+          <div class="row">
+            <div class="column-full">
+              <h1 class="city-name">Dummy</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-one-third text-align-right-dt">
+              <img class="open-weather-icon" src="images/cloud.png">
+            </div>
+            <div class="column-one-third">
+              <h2 class="temperature">55°F</h2>
+            </div>
+            <div class="column-one-third text-align-left-dt">
+              <h3 class="high-temp">High: 60°</h3>
+              <h3 class="low-temp">Low: 52°</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <h3 class="condition">clear sky</h3>
+            </div>
+          </div>
+          <div class="row mt-dt">
+            <div class="column-half padding-left">
+              <h3 class="feels-like">55°</h3>
+              <h3>Feels Like</h3>
+            </div>
+            <div class="column-half padding-right">
+              <h3 class="humidity">78%</h3>
+              <h3>Humidity</h3>
+            </div>
+          </div>
+          <div class="row mt-dt">
+            <div class="column-half padding-left">
+              <h3 class="wind">3mph</h3>
+              <h3>Wind Speed</h3>
+            </div>
+            <div class="column-half padding-right">
+              <h3 class="visibility">10km</h3>
+              <h3>Visibility</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full text-align-right padding-right-more">
+              <i class="fa-regular fa-trash-can trash-icon"></i>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </main>

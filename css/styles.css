@@ -16,6 +16,10 @@
   text-align: right;
 }
 
+.text-align-left {
+  text-align: left;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -107,6 +111,11 @@ li {
 }
 
 .like-icon {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.trash-icon {
   height: 2rem;
   cursor: pointer;
 }
@@ -235,6 +244,12 @@ li {
     margin-right: 5rem;
   }
 
+  .trash-icon {
+    height: 2rem;
+    cursor: pointer;
+    margin-right: 5rem;
+  }
+
   .text-align-right-dt {
     text-align: right;
   }
@@ -253,5 +268,9 @@ li {
 
   .padding-right-more {
     padding-right: 14.5rem;
+  }
+
+  .padding-left-more {
+    padding-left: 14.5rem;
   }
 }
