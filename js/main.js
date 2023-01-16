@@ -142,7 +142,6 @@ function favoritesPageHamburger(event) {
 }
 
 var $favoriteList = document.querySelector('.favorite-list');
-// $likeIcon.addEventListener('click', pushToFavorites);
 $likeIcon.addEventListener('click', addToFavorites);
 
 function addToFavorites(event) {
@@ -151,54 +150,23 @@ function addToFavorites(event) {
   xhrForecast.open('GET', cityForecast);
   xhrForecast.responseType = 'json';
   xhrForecast.addEventListener('load', function () {
-    // console.log(this.response);
-    pushToFavorites(this.response);
-    // if (data.favorites.length === 0) {
-    //   renderCity(this.response);
-    // }
-    for (let i = 0; i < data.favorites.length; i++) {
-      renderCity(data.favorites[i]);
+    if (data.favorites.length === 0) {
+      data.favorites.push(this.response);
+      renderCity(this.response);
+    } else {
+      var seen = 0;
+      for (let i = 0; i < data.favorites.length; i++) {
+        if (this.response.id === data.favorites[i].id) {
+          seen = 1;
+        }
+      }
+      if (seen === 0) {
+        data.favorites.push(this.response);
+        renderCity(this.response);
+      }
     }
   });
   xhrForecast.send();
-}
-// $favoritesSearch.addEventListener('click', updateFavorites);
-// function updateFavorites(event) {
-//   var cityForecast = 'https://api.openweathermap.org/data/2.5/weather?lat=' + data.cityInfo[0].lat.toString() + '&lon=' + data.cityInfo[0].lon.toString() + '&units=imperial&appid=590354b7597fbc0d3a66d188da5ee2a9';
-//   var xhrForecast = new XMLHttpRequest();
-//   xhrForecast.open('GET', cityForecast);
-//   xhrForecast.responseType = 'json';
-//   xhrForecast.addEventListener('load', function () {
-//     for (let i = 0; i < data.favorites.length; i++) {
-//       if (this.response.id === data.favorites[i].id) {
-//         data.favorites[i] = renderCity(this.response);
-//       }
-//     }
-//   });
-//   xhrForecast.send();
-// }
-
-function pushToFavorites(city) {
-  // console.log('test');
-
-  if (data.favorites.length === 0) {
-    data.favorites.push(city);
-  } else {
-    var bool = 0;
-    for (let i = 0; i < data.favorites.length; i++) {
-      // console.log(data.favorites.length);
-      // console.log(city.id);
-      // console.log(data.favorites[i].id);
-
-      if (city.id === data.favorites[i].id) {
-        bool = 1;
-        continue;
-      }
-    }
-    if (bool === 0) {
-      data.favorites.push(city);
-    }
-  }
 }
 
 function renderCity(city) {
