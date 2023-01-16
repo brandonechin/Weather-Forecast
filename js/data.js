@@ -3,7 +3,7 @@ var data = {
   view: 'search-page',
   cities: [],
   cityInfo: null,
-  cityForecast: [],
+  favorites: [],
   editing: null,
   nextEntryId: 1
 };

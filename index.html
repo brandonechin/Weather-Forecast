@@ -30,16 +30,20 @@
       </div>
     </div>
   </div>
+  <header class="container">
+    <div class="row">
+      <div class="column-two-third flex weather-forecast-nav-text">
+        <h2 id="logo-header" class="">Weather<br>Forecast</h2>
+      </div>
+      <div class="column-one-third text-align-right mt-10px">
+        <i id="hamburger" class="fa-solid fa-bars hamburger"></i>
+        <a id="new-search-button" class="nav-anchors" href="#">New Search</a>
+        <a id="favorites-button" class="nav-anchors" href="#">Favorites</a>
+      </div>
+    </div>
+  </header>
   <main class="container">
-    <div id="search-page" class="hidden">
-      <header class="container">
-        <div class="row">
-          <div class="column-full text-align-right">
-            <i id="search-hamburger" class="fa-solid fa-bars hamburger"></i>
-            <a class="favorites" href="#">Favorites</a>
-          </div>
-        </div>
-      </header>
+    <div id="search-page" class="">
       <form id="weather-form">
         <div class="row">
           <div id="cloud-image" class="column-full text-align-center position-relative">
@@ -59,19 +63,7 @@
         </div>
       </form>
     </div>
-    <div id="city-page" class="">
-      <div class="container">
-        <div class="row">
-          <div class="column-two-third flex weather-forecast-nav-text">
-            <h2>Weather<br>Forecast</h2>
-          </div>
-          <div class="column-one-third text-align-right mt-10px">
-            <i id="city-hamburger" class="fa-solid fa-bars hamburger"></i>
-            <a id="new-search-city" class="nav-anchors" href="#">New Search</a>
-            <a class="nav-anchors" href="#">Favorites</a>
-          </div>
-        </div>
-      </div>
+    <div id="city-page" class="hidden">
       <ul>
         <li class="text-align-center white-text">
           <div class="row">
@@ -126,20 +118,8 @@
       </ul>
     </div>
     <div id="favorite-page" class="hidden">
-      <div class="container">
-        <div class="row">
-          <div class="column-two-third flex weather-forecast-nav-text">
-            <h2>Weather<br>Forecast</h2>
-          </div>
-          <div class="column-one-third text-align-right mt-10px">
-            <i class="fa-solid fa-bars hamburger"></i>
-            <a class="nav-anchors" href="#">New Search</a>
-            <a class="nav-anchors" href="#">Favorites</a>
-          </div>
-        </div>
-      </div>
       <ul class="favorite-list">
-        <li class="text-align-center white-text">
+        <!-- <li class="text-align-center white-text">
           <div class="row">
             <div class="column-full">
               <h1 class="city-name">Dummy</h1>
@@ -187,7 +167,7 @@
               <i class="fa-regular fa-trash-can trash-icon"></i>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </main>
