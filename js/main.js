@@ -171,7 +171,7 @@ function addToFavorites(event) {
 
 function renderCity(city) {
   var li = document.createElement('li');
-  li.setAttribute('class', 'text-align-center white-text');
+  li.setAttribute('class', 'text-align-center white-text column-half');
   li.setAttribute('city-entry-id', city.id);
   var div = document.createElement('div');
   div.setAttribute('class', 'row');
@@ -225,7 +225,7 @@ function renderCity(city) {
   div8.setAttribute('class', 'row mt-dt');
   li.appendChild(div8);
   var div9 = document.createElement('div');
-  div9.setAttribute('class', 'column-half padding-left');
+  div9.setAttribute('class', 'col-half padding-left');
   div8.appendChild(div9);
   var feelsLike = document.createElement('h3');
   feelsLike.setAttribute('class', 'feels-like');
@@ -235,7 +235,7 @@ function renderCity(city) {
   feelsLikeText.appendChild(document.createTextNode('Feels Like'));
   div9.appendChild(feelsLikeText);
   var div10 = document.createElement('div');
-  div10.setAttribute('class', 'column-half padding-right');
+  div10.setAttribute('class', 'col-half padding-right');
   div8.appendChild(div10);
   var humidity = document.createElement('h3');
   humidity.setAttribute('class', 'humidity');
@@ -248,7 +248,7 @@ function renderCity(city) {
   div11.setAttribute('class', 'row mt-dt');
   li.appendChild(div11);
   var div12 = document.createElement('div');
-  div12.setAttribute('class', 'column-half padding-left');
+  div12.setAttribute('class', 'col-half padding-left');
   div11.appendChild(div12);
   var wind = document.createElement('h3');
   wind.setAttribute('class', 'wind');
@@ -258,7 +258,7 @@ function renderCity(city) {
   windText.appendChild(document.createTextNode('wind'));
   div12.appendChild(windText);
   var div13 = document.createElement('div');
-  div13.setAttribute('class', 'column-half padding-right');
+  div13.setAttribute('class', 'col-half padding-right');
   div11.appendChild(div13);
   var visibility = document.createElement('h3');
   visibility.setAttribute('class', 'visibility');

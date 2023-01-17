@@ -90,7 +90,7 @@
   flex-basis: 29%;
 }
 
-.column-half {
+.col-half {
   flex-basis: calc(100% / 2);
 }
 
@@ -229,6 +229,14 @@ li {
 
   .column-one-third {
     flex-basis: calc(100% / 3);
+  }
+
+  .column-half {
+    flex-basis: calc(100%/2);
+  }
+
+  .col-half {
+    flex-basis: calc(100%/2);
   }
 
   li {
