@@ -54,7 +54,7 @@ function getForecastInfo(event) {
   xhrForecast.addEventListener('load', function () {
     $cityName.textContent = this.response.name;
     $icon.src = 'http://openweathermap.org/img/wn/' + this.response.weather[0].icon + '@2x.png';
-    $temperature.textContent = this.response.main.temp + '°F';
+    $temperature.textContent = Math.round(this.response.main.temp) + '°F';
     $highTemp.textContent = this.response.main.temp_max + '°';
     $lowTemp.textContent = this.response.main.temp_min + '°';
     $condition.textContent = this.response.weather[0].description;
@@ -114,11 +114,9 @@ function favoritesPage(event) {
 var $hamburger = document.querySelector('#hamburger');
 $hamburger.addEventListener('click', hamburger);
 var $overlay = document.querySelector('.overlay');
-var $cloudImage = document.querySelector('#cloud-image');
 function hamburger(event) {
   if (event.target.matches('#hamburger')) {
     $overlay.className = 'overlay';
-    $cloudImage.className = 'column-full text-align-center';
   }
 }
 
@@ -128,7 +126,6 @@ function newSearchPageHamburger(event) {
   if (event.target.matches('#new-search-hamburger')) {
     viewSwap('search-page');
     $overlay.className = 'overlay hidden';
-    $cloudImage.className = 'column-full text-align-center position-relative';
   }
 }
 

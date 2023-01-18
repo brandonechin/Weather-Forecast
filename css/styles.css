@@ -1,3 +1,8 @@
+li {
+  list-style: none;
+  margin-top: 5rem;
+}
+
 .background-image {
   background-image: url("/images/forest-mountains-sunset-cool-weather-minimalism-yn-edit.jpg");
   background-repeat: no-repeat;
@@ -29,14 +34,17 @@
   position: relative;
 }
 
+.position-absolute {
+  position: absolute;
+}
+
 .weather-forecast-text {
   font-size: 1.5rem;
   font-family: "Fredoka one", sans-serif;
-  position: absolute;
   line-height: 1.2rem;
-  top: 62%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 8rem;
+  left: 14.7rem;
 }
 
 .weather-forecast-nav-text {
@@ -98,11 +106,6 @@
   margin-top: 10px;
 }
 
-li {
-  list-style: none;
-  margin-top: 5rem;
-}
-
 .open-weather-icon {
   height: 4rem;
 }
@@ -136,6 +139,7 @@ li {
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 10;
 }
 
 #new-search-hamburger {
@@ -195,12 +199,24 @@ li {
     margin-top: 3rem;
     height: 15rem;
     width: 20rem;
+    position: relative;
   }
 
   .weather-forecast-text {
     font-size: 2rem;
     font-family: "Fredoka one", sans-serif;
     line-height: 1.6rem;
+    position: absolute;
+    top: 10.5rem;
+    left: 42rem;
+  }
+
+  .position-absolute {
+    position: absolute;
+  }
+
+  .position-relative {
+    position: relative;
   }
 
   .weather-forecast-nav-text {
