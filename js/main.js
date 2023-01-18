@@ -152,7 +152,7 @@ function addToFavorites(event) {
   xhrForecast.addEventListener('load', function () {
     if (data.favorites.length === 0) {
       data.favorites.push(this.response);
-      renderCity(this.response);
+      $favoriteList.append(renderCity(this.response));
     } else {
       var seen = 0;
       for (let i = 0; i < data.favorites.length; i++) {
@@ -162,17 +162,41 @@ function addToFavorites(event) {
       }
       if (seen === 0) {
         data.favorites.push(this.response);
-        renderCity(this.response);
+        $favoriteList.append(renderCity(this.response));
       }
     }
   });
   xhrForecast.send();
 }
 
+var $updateFavorites = document.querySelector('.favorites-button-update');
+var $updateFavoritesham = document.querySelector('.favorites-button-update-hamburger');
+$updateFavoritesham.addEventListener('click', updateFavorites);
+$updateFavorites.addEventListener('click', updateFavorites);
+
+function updateFavorites(event) {
+  for (let i = 0; i < data.favorites.length; i++) {
+    var cityForecast = 'https://api.openweathermap.org/data/2.5/weather?lat=' + data.favorites[i].coord.lat.toString() + '&lon=' + data.favorites[i].coord.lon.toString() + '&units=imperial&appid=590354b7597fbc0d3a66d188da5ee2a9';
+    var xhrForecast = new XMLHttpRequest();
+    xhrForecast.open('GET', cityForecast);
+    xhrForecast.responseType = 'json';
+    xhrForecast.addEventListener('load', function () {
+      var $favoritesListLi = document.querySelectorAll('.li-fav');
+      for (let index = 0; index < $favoritesListLi.length; index++) {
+        if (Number($favoritesListLi[index].getAttribute('id')) === this.response.id) {
+          var updateCity = renderCity(this.response);
+          $favoritesListLi[index].replaceWith(updateCity);
+        }
+      }
+    });
+    xhrForecast.send();
+  }
+}
+
 function renderCity(city) {
   var li = document.createElement('li');
-  li.setAttribute('class', 'text-align-center white-text');
-  li.setAttribute('city-entry-id', city.id);
+  li.setAttribute('class', 'text-align-center white-text column-half li-fav');
+  li.setAttribute('id', city.id);
   var div = document.createElement('div');
   div.setAttribute('class', 'row');
   li.appendChild(div);
@@ -225,7 +249,7 @@ function renderCity(city) {
   div8.setAttribute('class', 'row mt-dt');
   li.appendChild(div8);
   var div9 = document.createElement('div');
-  div9.setAttribute('class', 'column-half padding-left');
+  div9.setAttribute('class', 'col-half padding-left');
   div8.appendChild(div9);
   var feelsLike = document.createElement('h3');
   feelsLike.setAttribute('class', 'feels-like');
@@ -235,7 +259,7 @@ function renderCity(city) {
   feelsLikeText.appendChild(document.createTextNode('Feels Like'));
   div9.appendChild(feelsLikeText);
   var div10 = document.createElement('div');
-  div10.setAttribute('class', 'column-half padding-right');
+  div10.setAttribute('class', 'col-half padding-right');
   div8.appendChild(div10);
   var humidity = document.createElement('h3');
   humidity.setAttribute('class', 'humidity');
@@ -248,17 +272,17 @@ function renderCity(city) {
   div11.setAttribute('class', 'row mt-dt');
   li.appendChild(div11);
   var div12 = document.createElement('div');
-  div12.setAttribute('class', 'column-half padding-left');
+  div12.setAttribute('class', 'col-half padding-left');
   div11.appendChild(div12);
   var wind = document.createElement('h3');
   wind.setAttribute('class', 'wind');
   wind.appendChild(document.createTextNode(city.wind.speed + 'mph'));
   div12.appendChild(wind);
   var windText = document.createElement('h3');
-  windText.appendChild(document.createTextNode('wind'));
+  windText.appendChild(document.createTextNode('Wind Speed'));
   div12.appendChild(windText);
   var div13 = document.createElement('div');
-  div13.setAttribute('class', 'column-half padding-right');
+  div13.setAttribute('class', 'col-half padding-right');
   div11.appendChild(div13);
   var visibility = document.createElement('h3');
   visibility.setAttribute('class', 'visibility');
@@ -276,6 +300,5 @@ function renderCity(city) {
   var trashIcon = document.createElement('i');
   trashIcon.setAttribute('class', 'fa-regular fa-trash-can trash-icon');
   div15.appendChild(trashIcon);
-  $favoriteList.append(li);
-  return $favoriteList;
+  return li;
 }
