@@ -132,6 +132,33 @@ li {
   font-size: 3rem;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.delete-buttons {
+  margin-top: 3rem;
+  justify-content: space-evenly;
+  font-size: 1.8rem;
+}
+
+.yes-button {
+  width: 6rem;
+  border: none;
+  background-color: rgb(23, 125, 235);
+  color: white;
+  border-radius: 5px;
+}
+
+.no-button {
+  width: 6rem;
+  border: none;
+  background-color: rgb(23, 125, 235);
+  color: white;
+  border-radius: 5px;
+  margin-left: 2.5rem;
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.759);
   position: fixed;
@@ -140,6 +167,16 @@ li {
   top: 0;
   bottom: 0;
   z-index: 10;
+}
+
+.modal-box {
+  background-color: white;
+  border-radius: 5px;
+  font-family: sans-serif;
+  font-size: 2rem;
+  width: 25rem;
+  height: 15rem;
+  margin-top: 10rem;
 }
 
 #new-search-hamburger {
@@ -164,6 +201,12 @@ li {
 
 .padding-right-more-like {
   padding-right: 3rem;
+}
+
+.delete-text {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 845px) {
