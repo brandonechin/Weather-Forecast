@@ -304,12 +304,13 @@ $favoriteList.addEventListener('click', showDeleteModal);
 function showDeleteModal(event) {
   if (event.target.tagName === 'I') {
     $trashIconOverlay.className = 'row justify-center overlay';
-    // var closest = event.target.closest('li');
     var li = event.target.closest('li');
     data.editing = Number(li.getAttribute('id'));
-    // deleteCity(li);
+    var $yesButton = document.querySelector('.yes-button');
+    $yesButton.addEventListener('click', function () {
+      deleteCity(li);
+    });
   }
-  // return closest.remove();
 }
 
 var $noButton = document.querySelector('.no-button');
@@ -319,14 +320,13 @@ function hideDeleteModal(event) {
   $trashIconOverlay.className = 'row justify-center overlay hidden';
 }
 
-var $yesButton = document.querySelector('.yes-button');
-$yesButton.addEventListener('click', deleteCity);
 function deleteCity(event) {
   for (let i = 0; i < data.favorites.length; i++) {
     if (data.favorites[i].id === data.editing) {
       data.favorites.splice(i, 1);
-      // .remove();
     }
   }
+  var li = event;
+  li.remove();
   $trashIconOverlay.className = 'row justify-center overlay hidden';
 }
