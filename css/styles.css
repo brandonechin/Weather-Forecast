@@ -43,8 +43,8 @@ li {
   font-family: "Fredoka one", sans-serif;
   line-height: 1.2rem;
   position: absolute;
-  top: 8rem;
-  left: 14.7rem;
+  top: 7rem;
+  right: -3.4rem;
 }
 
 .weather-forecast-nav-text {
@@ -73,6 +73,7 @@ li {
   height: 2rem;
   width: 5rem;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .favorites {
@@ -134,6 +135,10 @@ li {
 
 .justify-center {
   justify-content: center;
+}
+
+.space-around {
+  justify-content: space-around;
 }
 
 .delete-buttons {
@@ -250,8 +255,8 @@ li {
     font-family: "Fredoka one", sans-serif;
     line-height: 1.6rem;
     position: absolute;
-    top: 10.5rem;
-    left: 42rem;
+    top: 9.5rem;
+    left: -4rem;
   }
 
   .position-absolute {
@@ -288,6 +293,7 @@ li {
     height: 2.5rem;
     width: 7rem;
     border-radius: 5px;
+    cursor: pointer;
   }
 
   .column-two-third {
