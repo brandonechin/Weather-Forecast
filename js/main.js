@@ -112,11 +112,11 @@ function favoritesPage(event) {
 }
 
 var $hamburger = document.querySelector('#hamburger');
-$hamburger.addEventListener('click', hamburger);
-var $overlay = document.querySelector('.overlay');
-function hamburger(event) {
+$hamburger.addEventListener('click', hamburgerOverlay);
+var $hamburgerOverlay = document.querySelector('#hamburger-overlay');
+function hamburgerOverlay(event) {
   if (event.target.matches('#hamburger')) {
-    $overlay.className = 'overlay';
+    $hamburgerOverlay.className = 'overlay';
   }
 }
 
@@ -125,7 +125,7 @@ $newSearchHamburgerButton.addEventListener('click', newSearchPageHamburger);
 function newSearchPageHamburger(event) {
   if (event.target.matches('#new-search-hamburger')) {
     viewSwap('search-page');
-    $overlay.className = 'overlay hidden';
+    $hamburgerOverlay.className = 'overlay hidden';
   }
 }
 
@@ -134,7 +134,7 @@ $favoritesHamburgerButton.addEventListener('click', favoritesPageHamburger);
 function favoritesPageHamburger(event) {
   if (event.target.matches('#favorites-hamburger')) {
     viewSwap('favorite-page');
-    $overlay.className = 'overlay hidden';
+    $hamburgerOverlay.className = 'overlay hidden';
   }
 }
 
@@ -298,4 +298,35 @@ function renderCity(city) {
   trashIcon.setAttribute('class', 'fa-regular fa-trash-can trash-icon');
   div15.appendChild(trashIcon);
   return li;
+}
+var $trashIconOverlay = document.querySelector('#trash-icon-overlay');
+$favoriteList.addEventListener('click', showDeleteModal);
+function showDeleteModal(event) {
+  if (event.target.tagName === 'I') {
+    $trashIconOverlay.className = 'row justify-center overlay';
+    // var closest = event.target.closest('li');
+    var li = event.target.closest('li');
+    data.editing = Number(li.getAttribute('id'));
+    // deleteCity(li);
+  }
+  // return closest.remove();
+}
+
+var $noButton = document.querySelector('.no-button');
+$noButton.addEventListener('click', hideDeleteModal);
+
+function hideDeleteModal(event) {
+  $trashIconOverlay.className = 'row justify-center overlay hidden';
+}
+
+var $yesButton = document.querySelector('.yes-button');
+$yesButton.addEventListener('click', deleteCity);
+function deleteCity(event) {
+  for (let i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === data.editing) {
+      data.favorites.splice(i, 1);
+      // .remove();
+    }
+  }
+  $trashIconOverlay.className = 'row justify-center overlay hidden';
 }
