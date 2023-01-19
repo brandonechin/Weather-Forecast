@@ -7,8 +7,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="background-image">
-  <div class="overlay hidden">
+  <div id="hamburger-overlay" class="overlay hidden">
     <div class="container mt-5rem">
       <div class="row">
         <div class="column-full text-align-center">
@@ -26,6 +26,21 @@
       <div class="row mt-10px">
         <div class="column-full text-align-center">
           <a id="favorites-hamburger" class="favorites-button-update-hamburger">Favorites</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="trash-icon-overlay" class="row justify-center overlay hidden">
+    <div class="modal-box">
+      <div class="row">
+        <div class="column-full text-align-center">
+          <h3 class="delete-text">Are you sure you want to delete?</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column-full delete-buttons flex">
+          <button class="yes-button">Yes</button>
+          <button class="no-button">No</button>
         </div>
       </div>
     </div>
@@ -48,6 +63,8 @@
         <div class="row">
           <div id="cloud-image" class="column-full text-align-center position-relative">
             <img class="cloud-image" src="/images/cloud.png" alt="cloud">
+          </div>
+          <div class="position-absolute">
             <h1 class="weather-forecast-text">Weather<br>Forecast</h1>
           </div>
         </div>

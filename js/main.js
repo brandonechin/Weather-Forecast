@@ -54,7 +54,7 @@ function getForecastInfo(event) {
   xhrForecast.addEventListener('load', function () {
     $cityName.textContent = this.response.name;
     $icon.src = 'http://openweathermap.org/img/wn/' + this.response.weather[0].icon + '@2x.png';
-    $temperature.textContent = this.response.main.temp + '°F';
+    $temperature.textContent = Math.round(this.response.main.temp) + '°F';
     $highTemp.textContent = this.response.main.temp_max + '°';
     $lowTemp.textContent = this.response.main.temp_min + '°';
     $condition.textContent = this.response.weather[0].description;
@@ -112,13 +112,11 @@ function favoritesPage(event) {
 }
 
 var $hamburger = document.querySelector('#hamburger');
-$hamburger.addEventListener('click', hamburger);
-var $overlay = document.querySelector('.overlay');
-var $cloudImage = document.querySelector('#cloud-image');
-function hamburger(event) {
+$hamburger.addEventListener('click', hamburgerOverlay);
+var $hamburgerOverlay = document.querySelector('#hamburger-overlay');
+function hamburgerOverlay(event) {
   if (event.target.matches('#hamburger')) {
-    $overlay.className = 'overlay';
-    $cloudImage.className = 'column-full text-align-center';
+    $hamburgerOverlay.className = 'overlay';
   }
 }
 
@@ -127,8 +125,7 @@ $newSearchHamburgerButton.addEventListener('click', newSearchPageHamburger);
 function newSearchPageHamburger(event) {
   if (event.target.matches('#new-search-hamburger')) {
     viewSwap('search-page');
-    $overlay.className = 'overlay hidden';
-    $cloudImage.className = 'column-full text-align-center position-relative';
+    $hamburgerOverlay.className = 'overlay hidden';
   }
 }
 
@@ -137,7 +134,7 @@ $favoritesHamburgerButton.addEventListener('click', favoritesPageHamburger);
 function favoritesPageHamburger(event) {
   if (event.target.matches('#favorites-hamburger')) {
     viewSwap('favorite-page');
-    $overlay.className = 'overlay hidden';
+    $hamburgerOverlay.className = 'overlay hidden';
   }
 }
 
@@ -301,4 +298,35 @@ function renderCity(city) {
   trashIcon.setAttribute('class', 'fa-regular fa-trash-can trash-icon');
   div15.appendChild(trashIcon);
   return li;
+}
+var $trashIconOverlay = document.querySelector('#trash-icon-overlay');
+$favoriteList.addEventListener('click', showDeleteModal);
+function showDeleteModal(event) {
+  if (event.target.tagName === 'I') {
+    $trashIconOverlay.className = 'row justify-center overlay';
+    var li = event.target.closest('li');
+    data.editing = Number(li.getAttribute('id'));
+    var $yesButton = document.querySelector('.yes-button');
+    $yesButton.addEventListener('click', function () {
+      deleteCity(li);
+    });
+  }
+}
+
+var $noButton = document.querySelector('.no-button');
+$noButton.addEventListener('click', hideDeleteModal);
+
+function hideDeleteModal(event) {
+  $trashIconOverlay.className = 'row justify-center overlay hidden';
+}
+
+function deleteCity(event) {
+  for (let i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === data.editing) {
+      data.favorites.splice(i, 1);
+    }
+  }
+  var li = event;
+  li.remove();
+  $trashIconOverlay.className = 'row justify-center overlay hidden';
 }
