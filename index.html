@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,7 +55,7 @@
     </div>
   </header>
   <main class="container">
-    <div id="search-page" class="">
+    <div id="search-page" class=""> <!-- Search page. This is where the user can input the name of the city they would like to receive forecast information of.-->
       <form id="weather-form">
         <div class="row justify-center">
           <div id="cloud-image" class="column-full position-relative">
@@ -79,12 +77,12 @@
         </div>
       </form>
     </div>
-    <div id="city-page" class="hidden">
+    <div id="city-page" class="hidden"> <!-- City page. This is where the city's forecast information is presented.-->
       <ul>
         <li class="white-text">
           <div class="row justify-center">
             <div class="column-full">
-              <h1 class="city-name"><!--Dummy--></h1>
+              <h1 class="city-name"></h1>
             </div>
           </div>
           <div class="row justify-center align-center">
@@ -92,61 +90,61 @@
               <img class="open-weather-icon" src="">
             </div>
             <div class="column-one-third flex justify-center">
-              <h2 class="temperature"><!--55°F--></h2>
+              <h2 class="temperature"></h2>
             </div>
             <div class="column-one-third">
               <div class="row justify-center justify-start">
-                <h3 class="high-temp"><!--High: 60°--></h3>
+                <h3 class="high-temp"></h3>
               </div>
               <div class="row justify-center justify-start">
-                <h3 class="low-temp"><!--Low: 52°--></h3>
+                <h3 class="low-temp"></h3>
               </div>
             </div>
           </div>
           <div class="row justify-center mb-2rem">
             <div class="column-full">
-              <h3 class="condition"><!--clear sky--></h3>
+              <h3 class="condition"></h3>
             </div>
           </div>
           <div class="row mb-2rem">
-            <div class="col-half padding-left">
+            <div class="col-half padding-left-city">
               <div class="justify-center flex">
-                <h3 class="feels-like"><!--55°--></h3>
+                <h3 class="feels-like"></h3>
               </div>
               <div class="justify-center flex">
-                <h3>Feels Like</h3>
+                <h3 class="feels-like-text"></h3>
               </div>
             </div>
-            <div class="col-half padding-right">
+            <div class="col-half padding-right-city">
               <div class="justify-center flex">
-                <h3 class="humidity"><!--78%--></h3>
+                <h3 class="humidity"></h3>
               </div>
               <div class="justify-center flex">
-                <h3>Humidity</h3>
+                <h3 class="humidity-text"></h3>
               </div>
             </div>
           </div>
           <div class="row mt-dt">
-            <div class="col-half padding-left">
+            <div class="col-half padding-left-city">
               <div class="justify-center flex">
-                <h3 class="wind"><!--3 mph--></h3>
+                <h3 class="wind"></h3>
               </div>
               <div class="justify-center flex">
-                <h3>Wind Speed</h3>
+                <h3 class="wind-text"></h3>
               </div>
             </div>
-            <div class="col-half padding-right">
+            <div class="col-half padding-right-city">
               <div class="justify-center flex">
-                <h3 class="visibility"><!--10km--></h3>
+                <h3 class="visibility"></h3>
               </div>
               <div class="justify-center flex">
-                <h3>Visibility</h3>
+                <h3 class="visibility-text"></h3>
               </div>
             </div>
           </div>
           <div class="row position-relative">
             <div class="column-full position-absolute like-icon">
-              <i class="fa-solid fa-heart "></i>
+              <i id="fa-heart" class=""></i>
             </div>
           </div>
         </li>
@@ -154,56 +152,8 @@
       </ul>
     </div>
     <div id="favorite-page" class="hidden">
-      <ul class="favorite-list dt-row">
-        <!-- <li class="text-align-center white-text">
-          <div class="row">
-            <div class="column-full">
-              <h1 class="city-name">Dummy</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column-one-third text-align-right-dt">
-              <img class="open-weather-icon" src="images/cloud.png">
-            </div>
-            <div class="column-one-third">
-              <h2 class="temperature">55°F</h2>
-            </div>
-            <div class="column-one-third text-align-left-dt">
-              <h3 class="high-temp">High: 60°</h3>
-              <h3 class="low-temp">Low: 52°</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column-full">
-              <h3 class="condition">clear sky</h3>
-            </div>
-          </div>
-          <div class="row mt-dt">
-            <div class="column-half padding-left">
-              <h3 class="feels-like">55°</h3>
-              <h3>Feels Like</h3>
-            </div>
-            <div class="column-half padding-right">
-              <h3 class="humidity">78%</h3>
-              <h3>Humidity</h3>
-            </div>
-          </div>
-          <div class="row mt-dt">
-            <div class="column-half padding-left">
-              <h3 class="wind">3mph</h3>
-              <h3>Wind Speed</h3>
-            </div>
-            <div class="column-half padding-right">
-              <h3 class="visibility">10km</h3>
-              <h3>Visibility</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="column-full text-align-right padding-right-more">
-              <i class="fa-regular fa-trash-can trash-icon"></i>
-            </div>
-          </div>
-        </li> -->
+      <ul class="favorite-list flex-and-wrap"> <!-- Favorites Page. This is where the favorited cities forecast will be rendered.-->
+
       </ul>
     </div>
   </main>

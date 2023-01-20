@@ -45,6 +45,11 @@ var $humidity = document.querySelector('.humidity');
 var $windSpeed = document.querySelector('.wind');
 var $visibility = document.querySelector('.visibility');
 var $likeIcon = document.querySelector('.like-icon');
+var $feelsLikeText = document.querySelector('.feels-like-text');
+var $humidityText = document.querySelector('.humidity-text');
+var $windText = document.querySelector('.wind-text');
+var $visibilityText = document.querySelector('.visibility-text');
+var $faHeart = document.querySelector('#fa-heart');
 
 function getForecastInfo(event) {
   var cityForecast = 'https://api.openweathermap.org/data/2.5/weather?lat=' + data.cityInfo[0].lat.toString() + '&lon=' + data.cityInfo[0].lon.toString() + '&units=imperial&appid=590354b7597fbc0d3a66d188da5ee2a9';
@@ -55,13 +60,18 @@ function getForecastInfo(event) {
     $cityName.textContent = this.response.name;
     $icon.src = 'http://openweathermap.org/img/wn/' + this.response.weather[0].icon + '@2x.png';
     $temperature.textContent = Math.round(this.response.main.temp) + '°F';
-    $highTemp.textContent = this.response.main.temp_max + '°';
-    $lowTemp.textContent = this.response.main.temp_min + '°';
+    $highTemp.textContent = Math.round(this.response.main.temp_max) + '°';
+    $lowTemp.textContent = Math.round(this.response.main.temp_min) + '°';
     $condition.textContent = this.response.weather[0].description;
     $feelsLike.textContent = this.response.main.feels_like + '°';
+    $feelsLikeText.textContent = 'Feels Like';
     $humidity.textContent = this.response.main.humidity + '%';
+    $humidityText.textContent = 'Humidity';
     $windSpeed.textContent = this.response.wind.speed + 'mph';
+    $windText.textContent = 'Wind Speed';
     $visibility.textContent = this.response.visibility + 'km';
+    $visibilityText.textContent = 'Visibility';
+    $faHeart.className = 'fa-solid fa-heart';
   });
   xhrForecast.send();
 }
@@ -222,7 +232,7 @@ function renderCity(city) {
   temp.appendChild(document.createTextNode(Math.round(city.main.temp) + '°F'));
   div4.appendChild(temp);
   var div5 = document.createElement('div');
-  div5.setAttribute('class', 'column-one-third padding-left-lh');
+  div5.setAttribute('class', 'column-one-third padding-left-15px');
   div2.appendChild(div5);
   var divNew8 = document.createElement('div');
   divNew8.setAttribute('class', 'row justify-center justify-start');
@@ -252,7 +262,7 @@ function renderCity(city) {
   div8.setAttribute('class', 'row mb-2rem');
   li.appendChild(div8);
   var div9 = document.createElement('div');
-  div9.setAttribute('class', 'col-half padding-left');
+  div9.setAttribute('class', 'col-half');
   div8.appendChild(div9);
   var divNew = document.createElement('div');
   divNew.setAttribute('class', 'justify-center flex');
@@ -268,7 +278,7 @@ function renderCity(city) {
   feelsLikeText.appendChild(document.createTextNode('Feels Like'));
   divNew1.appendChild(feelsLikeText);
   var div10 = document.createElement('div');
-  div10.setAttribute('class', 'col-half padding-right');
+  div10.setAttribute('class', 'col-half');
   div8.appendChild(div10);
   var divNew2 = document.createElement('div');
   divNew2.setAttribute('class', 'justify-center flex');
@@ -287,7 +297,7 @@ function renderCity(city) {
   div11.setAttribute('class', 'row mt-dt');
   li.appendChild(div11);
   var div12 = document.createElement('div');
-  div12.setAttribute('class', 'col-half padding-left');
+  div12.setAttribute('class', 'col-half');
   div11.appendChild(div12);
   var divNew4 = document.createElement('div');
   divNew4.setAttribute('class', 'justify-center flex');
@@ -303,7 +313,7 @@ function renderCity(city) {
   windText.appendChild(document.createTextNode('Wind Speed'));
   divNew5.appendChild(windText);
   var div13 = document.createElement('div');
-  div13.setAttribute('class', 'col-half padding-right');
+  div13.setAttribute('class', 'col-half');
   div11.appendChild(div13);
   var divNew6 = document.createElement('div');
   divNew6.setAttribute('class', 'justify-center flex');
@@ -319,10 +329,10 @@ function renderCity(city) {
   visibilityText.appendChild(document.createTextNode('Visibility'));
   divNew7.appendChild(visibilityText);
   var div14 = document.createElement('div');
-  div14.setAttribute('class', 'row justify-end-heart');
+  div14.setAttribute('class', 'row justify-end-trash');
   li.appendChild(div14);
   var div15 = document.createElement('div');
-  div15.setAttribute('class', 'column-full padding-right-more-trash');
+  div15.setAttribute('class', 'column-full');
   div14.appendChild(div15);
   var trashIcon = document.createElement('i');
   trashIcon.setAttribute('class', 'fa-regular fa-trash-can trash-icon');

@@ -152,6 +152,7 @@ h1 {
 .trash-icon {
   height: 2rem;
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .city-name {
@@ -183,6 +184,7 @@ h1 {
   padding: 0.5rem 2.4rem;
   margin-right: 1rem;
   font-family: "Fredoka one", sans-serif;
+  cursor: pointer;
 }
 
 .no-button {
@@ -194,6 +196,7 @@ h1 {
   padding: 0.5rem 2.5rem;
   margin-left: 1rem;
   font-family: "Fredoka one", sans-serif;
+  cursor: pointer;
 }
 
 .overlay {
@@ -240,12 +243,8 @@ h1 {
   justify-content: end;
 }
 
-.padding-right-more {
-  padding-right: 3rem;
-}
-
-.padding-right-more-like {
-  padding-right: 2rem;
+.justify-end-trash {
+  justify-content: end;
 }
 
 .delete-text {
@@ -255,6 +254,10 @@ h1 {
 }
 
 @media screen and (min-width: 845px) {
+  li {
+    list-style: none;
+  }
+
   .container {
     max-width: 1500px;
   }
@@ -263,20 +266,57 @@ h1 {
     padding: 0 0.75rem;
   }
 
+  .column-two-third {
+    flex-basis: calc(100%*(2/3));
+  }
+
+  .column-half {
+    flex-basis: calc(100%/2);
+  }
+
+  .col-half {
+    flex-basis: calc(100%/2);
+  }
+
+  .column-one-third {
+    flex-basis: calc(100% / 3);
+  }
+
   .hamburger {
     display: none !important;
   }
 
-  .dt-row {
+  .flex-and-wrap {
     display: flex;
+    flex-wrap: wrap;
   }
 
-  .favorites {
-    display: block;
-    text-decoration: none;
-    font-family: "Fredoka one", sans-serif;
-    color: white;
-    margin-top: 0.5rem;
+  .justify-start {
+    justify-content: start;
+  }
+
+  .justify-end {
+    justify-content: end;
+  }
+
+  .position-absolute {
+    position: absolute;
+  }
+
+  .position-relative {
+    position: relative;
+  }
+
+  .padding-left-15px {
+    padding-left: 15px;
+  }
+
+  .padding-left-city {
+    padding-left: 10rem;
+  }
+
+  .padding-right-city {
+    padding-right: 10rem;
   }
 
   .nav-anchors {
@@ -285,6 +325,11 @@ h1 {
     font-family: "Fredoka one", sans-serif;
     color: white;
     margin: 0.8rem;
+  }
+
+  .weather-forecast-nav-text {
+    font-size: 1.5rem;
+    font-family: "Fredoka one", sans-serif;
   }
 
   .cloud-image {
@@ -301,25 +346,6 @@ h1 {
     position: absolute;
     top: 9.5rem;
     left: -4rem;
-  }
-
-  .like-icon {
-    height: 2rem;
-    cursor: pointer;
-    right: 19rem;
-  }
-
-  .position-absolute {
-    position: absolute;
-  }
-
-  .position-relative {
-    position: relative;
-  }
-
-  .weather-forecast-nav-text {
-    font-size: 1.5rem;
-    font-family: "Fredoka one", sans-serif;
   }
 
   .text-box {
@@ -345,61 +371,15 @@ h1 {
     cursor: pointer;
   }
 
-  .column-two-third {
-    flex-basis: calc(100%*(2/3));
-  }
-
-  .column-one-third {
-    flex-basis: calc(100% / 3);
-  }
-
-  .column-half {
-    flex-basis: calc(100%/2);
-  }
-
-  .col-half {
-    flex-basis: calc(100%/2);
-  }
-
-  li {
-    list-style: none;
+  .like-icon {
+    height: 2rem;
+    cursor: pointer;
+    right: 19rem;
   }
 
   .trash-icon {
     height: 2rem;
     cursor: pointer;
-    margin-right: 9rem;
-  }
-
-  .justify-start {
-    justify-content: start;
-  }
-
-  .justify-end {
-    justify-content: end;
-  }
-
-  .padding-left-lh {
-    padding-left: 15px;
-  }
-
-  .padding-left {
-    padding-left: 10rem;
-  }
-
-  .padding-right {
-    padding-right: 10rem;
-  }
-
-  .padding-right-more {
-    padding-right: 4rem;
-  }
-
-  .padding-right-more-like {
-    padding-right: 15rem;
-  }
-
-  .padding-left-more {
-    padding-left: 14.5rem;
+    margin-right: 4rem;
   }
 }
