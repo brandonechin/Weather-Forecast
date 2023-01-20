@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -66,12 +66,12 @@
           </div>
         </div>
         <div class="row justify-center">
-          <div class="column-full text-align-center">
+          <div class="column-full">
             <input id="city-input" class="text-box" required type="text" name="city-input" placeholder="Name of City">
           </div>
         </div>
         <div class="row space-around">
-          <div class="column-full text-align-center">
+          <div class="column-full">
             <button class="search-button">Search</button>
           </div>
         </div>
@@ -79,7 +79,7 @@
     </div>
     <div id="city-page" class="hidden"> <!-- City page. This is where the city's forecast information is presented.-->
       <ul>
-        <li class="white-text">
+        <li class="white-text city-font city-background">
           <div class="row justify-center">
             <div class="column-full">
               <h1 class="city-name"></h1>
@@ -152,7 +152,7 @@
       </ul>
     </div>
     <div id="favorite-page" class="hidden">
-      <ul class="favorite-list flex-and-wrap"> <!-- Favorites Page. This is where the favorited cities forecast will be rendered.-->
+      <ul class="favorite-list flex-and-wrap favorite-font"> <!-- Favorites Page. This is where the favorited cities forecast will be rendered.-->
 
       </ul>
     </div>
