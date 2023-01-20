@@ -17,13 +17,13 @@
 <body class="background-image">
   <div id="hamburger-overlay" class="overlay hidden">
     <div class="container mt-5rem">
-      <div class="row">
-        <div class="column-full text-align-center">
+      <div class="row justify-center">
+        <div class="column-full">
           <a id="new-search-hamburger">New Search</a>
         </div>
       </div>
-      <div class="row mt-10px">
-        <div class="column-full text-align-center">
+      <div class="row mt-10px justify-center">
+        <div class="column-full">
           <a id="favorites-hamburger" class="favorites-button-update-hamburger">Favorites</a>
         </div>
       </div>
@@ -31,25 +31,25 @@
   </div>
   <div id="trash-icon-overlay" class="row justify-center overlay hidden">
     <div class="modal-box">
-      <div class="row">
-        <div class="column-full text-align-center">
+      <div class="row justify-center">
+        <div class="column-full">
           <h3 class="delete-text">Are you sure you want to delete?</h3>
         </div>
       </div>
-      <div class="row">
+      <div class="row justify-center">
         <div class="column-full delete-buttons flex">
-          <button class="yes-button">Yes</button>
-          <button class="no-button">No</button>
+          <button class="yes-button">yes</button>
+          <button class="no-button">no</button>
         </div>
       </div>
     </div>
   </div>
   <header class="container">
-    <div class="row">
-      <div class="column-two-third flex weather-forecast-nav-text">
+    <div class="row justify-center">
+      <div class="column-full weather-forecast-nav-text">
         <h2 id="logo-header" class="">Weather<br>Forecast</h2>
       </div>
-      <div class="column-one-third text-align-right mt-10px">
+      <div class="position-absolute nav">
         <i id="hamburger" class="fa-solid fa-bars hamburger"></i>
         <a id="new-search-button" class="nav-anchors" href="#">New Search</a>
         <a id="favorites-button" class="nav-anchors favorites-button-update" href="#">Favorites</a>
@@ -81,52 +81,72 @@
     </div>
     <div id="city-page" class="hidden">
       <ul>
-        <li class="text-align-center white-text">
-          <div class="row">
+        <li class="white-text">
+          <div class="row justify-center">
             <div class="column-full">
               <h1 class="city-name"><!--Dummy--></h1>
             </div>
           </div>
-          <div class="row">
-            <div class="column-one-third text-align-right-dt">
+          <div class="row justify-center align-center">
+            <div class="column-one-third flex justify-center justify-end">
               <img class="open-weather-icon" src="">
             </div>
-            <div class="column-one-third">
+            <div class="column-one-third flex justify-center">
               <h2 class="temperature"><!--55°F--></h2>
             </div>
-            <div class="column-one-third text-align-left-dt">
-              <h3 class="high-temp"><!--High: 60°--></h3>
-              <h3 class="low-temp"><!--Low: 52°--></h3>
+            <div class="column-one-third">
+              <div class="row justify-center justify-start">
+                <h3 class="high-temp"><!--High: 60°--></h3>
+              </div>
+              <div class="row justify-center justify-start">
+                <h3 class="low-temp"><!--Low: 52°--></h3>
+              </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row justify-center mb-2rem">
             <div class="column-full">
               <h3 class="condition"><!--clear sky--></h3>
             </div>
           </div>
-          <div class="row mt-dt">
+          <div class="row mb-2rem">
             <div class="col-half padding-left">
-              <h3 class="feels-like"><!--55°--></h3>
-              <h3>Feels Like</h3>
+              <div class="justify-center flex">
+                <h3 class="feels-like"><!--55°--></h3>
+              </div>
+              <div class="justify-center flex">
+                <h3>Feels Like</h3>
+              </div>
             </div>
             <div class="col-half padding-right">
-              <h3 class="humidity"><!--78%--></h3>
-              <h3>Humidity</h3>
+              <div class="justify-center flex">
+                <h3 class="humidity"><!--78%--></h3>
+              </div>
+              <div class="justify-center flex">
+                <h3>Humidity</h3>
+              </div>
             </div>
           </div>
           <div class="row mt-dt">
             <div class="col-half padding-left">
-              <h3 class="wind"><!--3 mph--></h3>
-              <h3>Wind Speed</h3>
+              <div class="justify-center flex">
+                <h3 class="wind"><!--3 mph--></h3>
+              </div>
+              <div class="justify-center flex">
+                <h3>Wind Speed</h3>
+              </div>
             </div>
             <div class="col-half padding-right">
-              <h3 class="visibility"><!--10km--></h3>
-              <h3>Visibility</h3>
+              <div class="justify-center flex">
+                <h3 class="visibility"><!--10km--></h3>
+              </div>
+              <div class="justify-center flex">
+                <h3>Visibility</h3>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="column-full text-align-right padding-right-more-like">
-              <i class="fa-solid fa-heart like-icon"></i>
+          <div class="row position-relative">
+            <div class="column-full position-absolute like-icon">
+              <i class="fa-solid fa-heart "></i>
             </div>
           </div>
         </li>
@@ -134,7 +154,7 @@
       </ul>
     </div>
     <div id="favorite-page" class="hidden">
-      <ul class="favorite-list row">
+      <ul class="favorite-list dt-row">
         <!-- <li class="text-align-center white-text">
           <div class="row">
             <div class="column-full">
