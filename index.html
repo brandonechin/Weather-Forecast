@@ -13,6 +13,25 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="background-image">
+  <div class="loader-wrapper">
+    <div class="loadingio-spinner-bars-dxwxldj3nq5">
+      <div class="ldio-qmq7uvoq438">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div id="no-favorites" class="hidden">
+    <div class="container no-cities">
+      <div class="row justify-center">
+        <div class="column-full">
+          <h1> You have no favorites yet.</h1>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="hamburger-overlay" class="overlay hidden">
     <div class="container mt-5rem">
       <div class="row justify-center">
@@ -22,7 +41,7 @@
       </div>
       <div class="row mt-10px justify-center">
         <div class="column-full">
-          <a id="favorites-hamburger" class="favorites-button-update-hamburger">Favorites</a>
+          <a id="favorites-hamburger">Favorites</a>
         </div>
       </div>
     </div>
@@ -50,11 +69,11 @@
       <div class="position-absolute nav">
         <i id="hamburger" class="fa-solid fa-bars hamburger"></i>
         <a id="new-search-button" class="nav-anchors" href="#">New Search</a>
-        <a id="favorites-button" class="nav-anchors favorites-button-update" href="#">Favorites</a>
+        <a id="favorites-button" class="nav-anchors" href="#">Favorites</a>
       </div>
     </div>
   </header>
-  <main class="container">
+  <main class="main-container">
     <div id="search-page" class=""> <!-- Search page. This is where the user can input the name of the city they would like to receive forecast information of.-->
       <form id="weather-form">
         <div class="row justify-center">
@@ -92,7 +111,7 @@
             <div class="column-one-third flex justify-center">
               <h2 class="temperature"></h2>
             </div>
-            <div class="column-one-third">
+            <div class="column-one-third padding-left-20px">
               <div class="row justify-center justify-start">
                 <h3 class="high-temp"></h3>
               </div>
@@ -142,19 +161,20 @@
               </div>
             </div>
           </div>
-          <div class="row position-relative">
-            <div class="column-full position-absolute like-icon">
-              <i id="fa-heart" class=""></i>
+          <div class="row justify-end-heart pr-heart">
+            <div class="column-full like-icon">
+              <i id="fa-heart"></i>
             </div>
           </div>
         </li>
 
       </ul>
     </div>
-    <div id="favorite-page" class="hidden">
+    <div id="favorite-page" class="container-favorite hidden">
       <ul class="favorite-list flex-and-wrap favorite-font"> <!-- Favorites Page. This is where the favorited cities forecast will be rendered.-->
 
       </ul>
+
     </div>
   </main>
   <script src="js/data.js"></script>
