@@ -100,6 +100,7 @@ function viewSwap(viewtype) {
     $logoHeader.className = 'hidden';
     $newSearchButton.className = 'hidden';
     $mainContainer.className = 'container';
+    $noFavorites.className = 'hidden';
   }
   if (viewtype === 'city-page') {
     $cityPage.className = '';
@@ -136,7 +137,7 @@ function favoritesPage(event) {
     if (data.favorites.length > 0) {
       $loader.className = 'loader-wrapper';
     } else {
-      $noFavorites.className = 'overlay';
+      $noFavorites.className = '';
     }
   }
 }
@@ -169,7 +170,7 @@ function favoritesPageHamburger(event) {
   if (data.favorites.length > 0) {
     $loader.className = 'loader-wrapper';
   } else {
-    $noFavorites.className = 'overlay';
+    $noFavorites.className = '';
   }
 }
 
@@ -367,13 +368,15 @@ function renderCity(city) {
 var $trashIconOverlay = document.querySelector('#trash-icon-overlay');
 $favoriteList.addEventListener('click', showDeleteModal);
 function showDeleteModal(event) {
-  if (event.target.tagName === 'I') {
+  if (event.target.closest('li')) {
     $trashIconOverlay.className = 'row justify-center overlay';
     var li = event.target.closest('li');
     data.editing = Number(li.getAttribute('id'));
     var $yesButton = document.querySelector('.yes-button');
     $yesButton.addEventListener('click', function () {
-      deleteCity(li);
+      if (data.editing === Number(li.getAttribute('id'))) {
+        deleteCity(li);
+      }
     });
   }
 }
