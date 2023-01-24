@@ -24,7 +24,7 @@ h1 {
 }
 
 .background-image {
-  background-image: url("/images/forest-mountains-sunset-cool-weather-minimalism-yn-edit.jpg");
+  background-image: url("../images/forest-mountains-sunset-cool-weather-minimalism-yn-edit.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
