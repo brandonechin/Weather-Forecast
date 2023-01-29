@@ -1,4 +1,3 @@
-/* exported data */
 var data = {
   view: 'search-page',
   cities: [],

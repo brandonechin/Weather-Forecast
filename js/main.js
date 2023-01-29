@@ -23,7 +23,7 @@ function createInitialView(event) {
 
 $weatherForm.addEventListener('submit', getCityInfo);
 function getCityInfo(event) {
-  var cityInfoLatLon = 'http://api.openweathermap.org/geo/1.0/direct?q=' + data.cities[0].cityName + '&appid=590354b7597fbc0d3a66d188da5ee2a9';
+  var cityInfoLatLon = 'https://api.openweathermap.org/geo/1.0/direct?q=' + data.cities[0].cityName + '&appid=590354b7597fbc0d3a66d188da5ee2a9';
   var xhrCity = new XMLHttpRequest();
   xhrCity.open('GET', cityInfoLatLon);
   xhrCity.responseType = 'json';
@@ -63,7 +63,7 @@ function getForecastInfo(event) {
   xhrForecast.responseType = 'json';
   xhrForecast.addEventListener('load', function () {
     $cityName.textContent = this.response.name;
-    $icon.src = 'http://openweathermap.org/img/wn/' + this.response.weather[0].icon + '@2x.png';
+    $icon.src = 'https://openweathermap.org/img/wn/' + this.response.weather[0].icon + '@2x.png';
     $temperature.textContent = Math.round(this.response.main.temp) + '°F';
     $highTemp.textContent = Math.round(this.response.main.temp_max) + '°';
     $lowTemp.textContent = Math.round(this.response.main.temp_min) + '°';
@@ -247,7 +247,7 @@ function renderCity(city) {
   div2.appendChild(div3);
   var img = document.createElement('img');
   img.setAttribute('class', 'open-weather-icon');
-  img.setAttribute('src', 'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@2x.png');
+  img.setAttribute('src', 'https://openweathermap.org/img/wn/' + city.weather[0].icon + '@2x.png');
   div3.appendChild(img);
   var div4 = document.createElement('div');
   div4.setAttribute('class', 'column-one-third flex justify-center');
