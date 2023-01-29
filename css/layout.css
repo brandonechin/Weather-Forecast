@@ -8,6 +8,12 @@
   padding: 0 1.5rem;
 }
 
+.main-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

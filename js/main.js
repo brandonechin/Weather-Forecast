@@ -1,16 +1,16 @@
 var $weatherForm = document.querySelector('#weather-form');
 $weatherForm.addEventListener('submit', searchCity);
-
+var $cityBackground = document.querySelector('.city-background');
 function searchCity(event) {
   event.preventDefault();
-
+  $loader.className = 'loader-wrapper';
+  $cityBackground.className = 'white-text city-font';
   var inputCity = {
     cityName: document.querySelector('#city-input').value,
     entryId: data.nextEntryId
   };
 
   data.nextEntryId += 1;
-
   data.cities.unshift(inputCity);
   viewSwap('city-page');
   $weatherForm.reset();
@@ -50,6 +50,11 @@ var $humidityText = document.querySelector('.humidity-text');
 var $windText = document.querySelector('.wind-text');
 var $visibilityText = document.querySelector('.visibility-text');
 var $faHeart = document.querySelector('#fa-heart');
+var $loader = document.querySelector('.loader-wrapper');
+
+window.addEventListener('load', function () {
+  $loader.className = 'loader-wrapper hidden';
+});
 
 function getForecastInfo(event) {
   var cityForecast = 'https://api.openweathermap.org/data/2.5/weather?lat=' + data.cityInfo[0].lat.toString() + '&lon=' + data.cityInfo[0].lon.toString() + '&units=imperial&appid=590354b7597fbc0d3a66d188da5ee2a9';
@@ -72,6 +77,9 @@ function getForecastInfo(event) {
     $visibility.textContent = this.response.visibility + 'km';
     $visibilityText.textContent = 'Visibility';
     $faHeart.className = 'fa-solid fa-heart';
+    $loader.className = 'loader-wrapper hidden';
+    $cityBackground.className = 'white-text city-font city-background';
+
   });
   xhrForecast.send();
 }
@@ -81,6 +89,7 @@ var $cityPage = document.querySelector('#city-page');
 var $favoritePage = document.querySelector('#favorite-page');
 var $logoHeader = document.querySelector('#logo-header');
 var $newSearchButton = document.querySelector('#new-search-button');
+var $mainContainer = document.querySelector('.main-container');
 function viewSwap(viewtype) {
   data.view = viewtype;
   if (viewtype === 'search-page') {
@@ -89,6 +98,8 @@ function viewSwap(viewtype) {
     $favoritePage.className = 'hidden';
     $logoHeader.className = 'hidden';
     $newSearchButton.className = 'hidden';
+    $mainContainer.className = 'container';
+    $noFavorites.className = 'hidden';
   }
   if (viewtype === 'city-page') {
     $cityPage.className = '';
@@ -96,6 +107,7 @@ function viewSwap(viewtype) {
     $favoritePage.className = 'hidden';
     $newSearchButton.className = 'nav-anchors';
     $logoHeader.className = '';
+    $mainContainer.className = 'container';
   }
   if (viewtype === 'favorite-page') {
     $favoritePage.className = '';
@@ -103,6 +115,8 @@ function viewSwap(viewtype) {
     $cityPage.className = 'hidden';
     $newSearchButton.className = 'nav-anchors';
     $logoHeader.className = '';
+    $mainContainer.className = 'favorite-page-container';
+
   }
 }
 
@@ -113,11 +127,17 @@ function NewSearchButton(event) {
   }
 }
 
+var $noFavorites = document.querySelector('#no-favorites');
 var $favoritesButton = document.querySelector('#favorites-button');
 $favoritesButton.addEventListener('click', favoritesPage);
 function favoritesPage(event) {
   if (event.target.matches('#favorites-button')) {
     viewSwap('favorite-page');
+    if (data.favorites.length > 0) {
+      $loader.className = 'loader-wrapper';
+    } else {
+      $noFavorites.className = '';
+    }
   }
 }
 
@@ -145,6 +165,11 @@ function favoritesPageHamburger(event) {
   if (event.target.matches('#favorites-hamburger')) {
     viewSwap('favorite-page');
     $hamburgerOverlay.className = 'overlay hidden';
+  }
+  if (data.favorites.length > 0) {
+    $loader.className = 'loader-wrapper';
+  } else {
+    $noFavorites.className = '';
   }
 }
 
@@ -176,10 +201,8 @@ function addToFavorites(event) {
   xhrForecast.send();
 }
 
-var $updateFavorites = document.querySelector('.favorites-button-update');
-var $updateFavoritesham = document.querySelector('.favorites-button-update-hamburger');
-$updateFavoritesham.addEventListener('click', updateFavorites);
-$updateFavorites.addEventListener('click', updateFavorites);
+$favoritesHamburgerButton.addEventListener('click', updateFavorites);
+$favoritesButton.addEventListener('click', updateFavorites);
 
 function updateFavorites(event) {
   for (let i = 0; i < data.favorites.length; i++) {
@@ -195,6 +218,8 @@ function updateFavorites(event) {
           $favoritesListLi[index].replaceWith(updateCity);
         }
       }
+      $loader.className = 'loader-wrapper hidden';
+
     });
     xhrForecast.send();
   }
@@ -342,13 +367,15 @@ function renderCity(city) {
 var $trashIconOverlay = document.querySelector('#trash-icon-overlay');
 $favoriteList.addEventListener('click', showDeleteModal);
 function showDeleteModal(event) {
-  if (event.target.tagName === 'I') {
+  if (event.target.closest('li')) {
     $trashIconOverlay.className = 'row justify-center overlay';
     var li = event.target.closest('li');
     data.editing = Number(li.getAttribute('id'));
     var $yesButton = document.querySelector('.yes-button');
     $yesButton.addEventListener('click', function () {
-      deleteCity(li);
+      if (data.editing === Number(li.getAttribute('id'))) {
+        deleteCity(li);
+      }
     });
   }
 }
