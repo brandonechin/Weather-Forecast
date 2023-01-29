@@ -196,6 +196,10 @@ i:hover {
   color: white;
 }
 
+#no-favorites {
+  font-size: 12px;
+}
+
 .open-weather-icon {
   height: 7rem;
 }

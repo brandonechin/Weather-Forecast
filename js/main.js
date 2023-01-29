@@ -52,7 +52,6 @@ var $visibilityText = document.querySelector('.visibility-text');
 var $faHeart = document.querySelector('#fa-heart');
 var $loader = document.querySelector('.loader-wrapper');
 
-window.addEventListener('error', getForecastInfo);
 window.addEventListener('load', function () {
   $loader.className = 'loader-wrapper hidden';
 });
