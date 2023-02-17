@@ -367,7 +367,7 @@ function renderCity(city) {
 var $trashIconOverlay = document.querySelector('#trash-icon-overlay');
 $favoriteList.addEventListener('click', showDeleteModal);
 function showDeleteModal(event) {
-  if (event.target.closest('li')) {
+  if (event.target.closest('i')) {
     $trashIconOverlay.className = 'row justify-center overlay';
     var li = event.target.closest('li');
     data.editing = Number(li.getAttribute('id'));
@@ -396,4 +396,14 @@ function deleteCity(event) {
   var li = event;
   li.remove();
   $trashIconOverlay.className = 'row justify-center overlay hidden';
+  if (data.favorites.length === 0) {
+    viewSwap('search-page');
+  }
+}
+
+var $toSearchPage = document.querySelector('#logo-header');
+$toSearchPage.addEventListener('click', toSearchPage);
+
+function toSearchPage() {
+  viewSwap('search-page');
 }
